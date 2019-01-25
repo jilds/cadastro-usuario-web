@@ -1,0 +1,46 @@
+
+
+<form (ngSubmit)="salvar()">   
+    
+    <br/>
+    <h3>{{titulo}}</h3>
+    
+    <label>Código:
+        <input type="input" name="codigo" size="10" maxlength="8" [(ngModel)]="usuario.codigo" disabled/>
+    </label><br/><br/>
+
+    <label>Nome:
+        <input type="input" name="nome" size="60" maxlength="60" [(ngModel)]="usuario.nome"/>
+    </label><br/><br/>
+
+    <label>Login:
+        <input type="input" name="login" size="15" maxlength="12" [(ngModel)]="usuario.login"/>
+    </label><br/><br/>
+
+    <label>Email:
+        <input type="input" name="email" size="60" maxlength="60" [(ngModel)]="usuario.email"/>
+    </label><br/><br/>
+
+    <label>Senha:
+        <input type="password" name="senha" size="45" maxlength="45" [(ngModel)]="usuario.senha"/>
+    </label><br/><br/>
+
+    <label>Tempo para Expirar Senha:
+        <input type="input" name="tempoExpiracaoSenha" size="10" maxlength="4" [(ngModel)]="usuario.tempoExpiracaoSenha"/>
+    </label><br/><br/>
+
+    <label>Código Autorização:
+        <input type="input" name="codgAutorizacao" size="5" maxlength="1" [(ngModel)]="usuario.codgAutorizacao" />
+    </label><br/><br/>
+
+    <label>Registro Ativo:
+        <input type="radio" name="ativo" [(ngModel)]="usuario.situacaoUsuario" [value]="true">Sim
+        <input type="radio" name="ativo" [(ngModel)]="usuario.situacaoUsuario" [value]="false">Não<br>
+    </label><br/><br/>
+
+    <label>Código Pessoa:
+        <input type="number" name="codgPessoa" size="5" maxlength="1" [(ngModel)]="usuario.codgPessoa"/>
+    </label><br/><br/>
+
+    <button type="submit">Salvar</button>
+</form>

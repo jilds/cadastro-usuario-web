@@ -1,0 +1,17 @@
+
+
+<form (ngSubmit)="salvar()">   
+    
+    <br/>
+    <h3>{{titulo}}</h3>
+    
+    <label>Código:
+        <input type="input" name="codigo" size="8" [(ngModel)]="perfil.codigo" disabled/>
+    </label><br/><br/>
+
+    <label>Descrição:
+        <input type="input" name="nome" size="60" [(ngModel)]="perfil.nome"/>
+    </label><br/><br/>
+
+    <button type="submit">Salvar</button>
+</form>

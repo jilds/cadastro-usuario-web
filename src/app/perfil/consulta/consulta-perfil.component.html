@@ -1,0 +1,24 @@
+<h3>{{titulo}}</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let perfil of perfis; let i = index;">
+            <td>{{ perfil.codigo }}</td>
+            <td>{{ perfil.nome }}</td>
+            <td><a (click)="editar(perfil.codigo);">Editar</a></td>
+            <td><a (click)="excluir(perfil.codigo, i);">Excluir</a></td>
+        </tr>
+        <tr>
+            <td colspan="6" style="text-align: right;">Total de Registros: {{ perfis.length }}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,30 @@
+<div class="navbar">
+    <a [routerLink]="['/home']">Home</a>
+    <div class="dropdown">
+      <button class="dropbtn">Usuário 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a [routerLink]="['/cadastro-usuario']">Cadastro</a>
+        <a [routerLink]="['/consulta-usuario']">Consulta</a>
+      </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Perfil 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a [routerLink]="['/cadastro-perfil']">Cadastro</a>
+          <a [routerLink]="['/consulta-perfil']">Consulta</a>
+        </div>
+      </div> 
+      <div class="dropdown">
+        <button class="dropbtn">Aparelho 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a [routerLink]="['/cadastro-aparelho']">Cadastro</a>
+          <a [routerLink]="['/consulta-aparelho']">Consulta</a>
+        </div>
+      </div> 
+  </div>

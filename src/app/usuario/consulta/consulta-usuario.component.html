@@ -1,0 +1,37 @@
+<h3>{{titulo}}</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Login</th>
+            <th>Email</th>
+            <th>Tempo Expiração Senha</th>
+            <th>Código Autorização</th>
+            <th>Situação</th>
+            <th>Código Pessoa</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let usuario of usuarios; let i = index;">
+            <td>{{ usuario.codigo }}</td>
+            <td>{{ usuario.nome }}</td>
+            <td>{{ usuario.login }}</td>
+            <td>{{ usuario.email }}</td>
+            <td>{{ usuario.tempoExpiracaoSenha }}</td>
+            <td>{{ usuario.codgAutorizacao }}</td>
+            <td *ngIf='usuario.situacaoUsuario'>Ativo</td>
+            <td *ngIf='!usuario.situacaoUsuario'>Inativo</td>
+            <td>{{ usuario.codgPessoa }}</td>
+            <td><a (click)="editar(usuario.codigo);">Editar</a></td>
+            <td><a (click)="excluir(usuario.codigo, i);">Excluir</a></td>
+        </tr>
+        <tr>
+            <td colspan="10" style="text-align: right;">Total de Registros: {{ usuarios.length }}</td>
+        </tr>
+    </tbody>
+</table>
