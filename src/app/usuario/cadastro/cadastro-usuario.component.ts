@@ -3,8 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
+import { AparelhoService } from '../../services/aparelho.service';
+import { PerfilService } from '../../services/perfil.service';
 import { UsuarioService } from '../../services/usuario.service';
 
+import { Aparelho } from '../../services/aparelho';
+import { Perfil } from '../../services/perfil';
 import { Usuario } from '../../services/usuario';
 
 import { Response } from '../../services/response';
@@ -20,26 +24,33 @@ export class CadastroUsuarioComponent implements OnInit {
 
   private titulo: string;
   private usuario: Usuario = new Usuario();
+  private perfis: Perfil[] = new Array();
+  private aparelhos: Aparelho[] = new Array();
 
-  constructor(private usuarioService: UsuarioService,
+  constructor(
+    private usuarioService: UsuarioService, 
+    private perfilService: PerfilService,
+    private aparelhoService: AparelhoService,
     private router: Router,
     private activatedRoute: ActivatedRoute) { }
 
   /* inicializacao do componente */
   ngOnInit() {
+    
+    /** Chama serviço de consulta para todos os perfis */
+    this.perfilService.getPerfis().subscribe(res => this.perfis = res);
+
+    /** Chama serviço de consulta para todos os aparelhos */
+    this.aparelhoService.getAparelhos().subscribe(res => this.aparelhos = res);
 
     this.activatedRoute.params.subscribe(parametro => {
-      console.log(parametro["codigo"]);
       if (parametro["codigo"] == undefined) {
-
         this.titulo = "Incluir Usuário";
       }
       else {
         this.titulo = "Editar Usuário";
         this.usuarioService.getUsuario(Number(parametro["codigo"])).subscribe(res => this.usuario = res);
       }
-
-
     });
   }
 
