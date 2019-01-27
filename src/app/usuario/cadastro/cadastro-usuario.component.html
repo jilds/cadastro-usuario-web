@@ -1,6 +1,6 @@
-<form (ngSubmit)="salvar()" class="form-group">
-    <div class="div align-center">
-        <h3 class="text-primary" style="text-align: center; vertical-align: middle;">{{titulo}}</h3>
+<form (ngSubmit)="salvar()">
+    <h3 class="text-primary" style="text-align: center; vertical-align: middle;">{{titulo}}</h3>
+    <div class="form-group align-form">
 
         <div class="form-group row">
             <label for="codigo" class="col-sm-2 col-form-label">Código:</label>
@@ -107,6 +107,6 @@
             </div>
         </div>
 
-        <button mat-button class="btn btn-primary" type="submit">Salvar</button>
+        <button class="btn btn-primary" type="submit">Salvar</button>
     </div>
 </form>

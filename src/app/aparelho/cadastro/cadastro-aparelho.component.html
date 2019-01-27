@@ -1,20 +1,29 @@
-
-
 <form (ngSubmit)="salvar()">
-    <br/>
-    <h3>{{titulo}}</h3>
-    
-    <label>Código:
-        <input type="input" name="codigo" size="8" [(ngModel)]="aparelho.codigo" disabled/>
-    </label><br/><br/>
+    <h3 class="text-primary" style="text-align: center; vertical-align: middle;">{{titulo}}</h3>
+    <div class="form-group align-form">
 
-    <label>Descrição:
-        <input type="input" name="descricao" size="15" [(ngModel)]="aparelho.descricao"/>
-    </label><br/><br/>
+        <div class="form-group row">
+            <label for="codigo" class="col-sm-2 col-form-label">Código:</label>
+            <div class="col-sm-6">
+                <input type="input" class="form-control form-control-sm" name="codigo" size="8" [(ngModel)]="aparelho.codigo"
+                    disabled />
+            </div>
+        </div>
 
-    <label>Código Aparelho:
-        <input type="input" name="descricao" size="15" [(ngModel)]="aparelho.codgAparelho"/>
-    </label><br/><br/>
+        <div class="form-group row">
+            <label for="codigo" class="col-sm-2 col-form-label">Descrição:</label>
+            <div class="col-sm-6">
+                <input type="input" class="form-control form-control-sm" name="descricao" size="15" [(ngModel)]="aparelho.descricao" />
+            </div>
+        </div>
 
-    <button type="submit">Salvar</button>
+        <div class="form-group row">
+            <label for="codigo" class="col-sm-2 col-form-label">Código Aparelho:</label>
+            <div class="col-sm-6">
+                <input type="input" class="form-control form-control-sm" name="descricao" size="15" [(ngModel)]="aparelho.codgAparelho" />
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Salvar</button>
+    </div>
 </form>

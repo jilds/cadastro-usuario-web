@@ -1,17 +1,22 @@
+<form (ngSubmit)="salvar()">
+    <h3 class="text-primary" style="text-align: center; vertical-align: middle;">{{titulo}}</h3>
+    <div class="form-group align-form">
 
+        <div class="form-group row">
+            <label for="codigo" class="col-sm-2 col-form-label">Código:</label>
+            <div class="col-sm-6">
+                <input type="input" class="form-control form-control-sm" name="codigo" size="8" [(ngModel)]="perfil.codigo"
+                    disabled />
+            </div>
+        </div>
 
-<form (ngSubmit)="salvar()">   
-    
-    <br/>
-    <h3>{{titulo}}</h3>
-    
-    <label>Código:
-        <input type="input" name="codigo" size="8" [(ngModel)]="perfil.codigo" disabled/>
-    </label><br/><br/>
+        <div class="form-group row">
+            <label for="codigo" class="col-sm-2 col-form-label">Descrição:</label>
+            <div class="col-sm-6">
+                <input type="input" class="form-control form-control-sm" name="nome" size="60" [(ngModel)]="perfil.nome" />
+            </div>
+        </div>
 
-    <label>Descrição:
-        <input type="input" name="nome" size="60" [(ngModel)]="perfil.nome"/>
-    </label><br/><br/>
-
-    <button type="submit">Salvar</button>
+        <button class="btn btn-primary" type="submit">Salvar</button>
+    </div>
 </form>
