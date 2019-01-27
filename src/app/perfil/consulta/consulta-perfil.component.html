@@ -1,24 +1,24 @@
-<h3>{{titulo}}</h3>
-
-<table>
+<h3 class="text-primary" style="text-align: center; vertical-align: middle;">{{titulo}}</h3>
+<table class="table table-sm table-bordered table-hover bg-light">
     <thead>
-        <tr>
-            <th>Código</th>
-            <th>Nome</th>
-            <th>Editar</th>
-            <th>Excluir</th>
+        <tr class="table-primary">
+            <th scope="col" class="text-secondary text-center">Código</th>
+            <th scope="col" class="text-secondary text-center">Nome</th>
+            <th scope="col" class="text-secondary text-center">Ações</th>
         </tr>
     </thead>
 
     <tbody>
         <tr *ngFor="let perfil of perfis; let i = index;">
-            <td>{{ perfil.codigo }}</td>
-            <td>{{ perfil.nome }}</td>
-            <td><a (click)="editar(perfil.codigo);">Editar</a></td>
-            <td><a (click)="excluir(perfil.codigo, i);">Excluir</a></td>
+            <td class="text-black-60 text-center" style="width: 120px !important;">{{ perfil.codigo }}</td>
+            <td class="text-black-60">{{ perfil.nome }}</td>
+            <td class="text-black-60 text-center" style="width: 120px !important;">
+                <a class="btn fa fa-edit" (click)="editar(perfil.codigo);"></a>
+                <a class="btn fa fa-trash" (click)="excluir(perfil.codigo, i);"></a>
+            </td>
         </tr>
         <tr>
-            <td colspan="6" style="text-align: right;">Total de Registros: {{ perfis.length }}</td>
+            <td colspan="6" class="text-black-60 text-right">Total de Registros: {{ perfis.length }}</td>
         </tr>
     </tbody>
 </table>

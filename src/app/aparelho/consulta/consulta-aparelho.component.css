@@ -1,41 +1,6 @@
-form{
-    left:5%;
-    width:90%;
-    height: 50%;
-    background-color: rgba(230, 230, 230, 0.71);
-    border: 1px solid  rgba(106, 141, 173, 0.71);
-}
-
-h3{
-    background-color: #213E8D;
-    color: white;
-    text-align: center;
-    vertical-align: middle;
-}
-
 table {
+    position:fixed;
+    left:10%;
     border-collapse: collapse;    
-    width: 100%;
-}
-
-th, td {
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even){
-    background-color: rgba(106, 141, 173, 0.71);
-    color: white;
-}
-
-th {
-    background-color: #213E8D;
-    color: white;
-}
-
-a{
-    cursor: pointer; 
-    cursor: hand; 
-    text-decoration:underline;
-     
+    width: 80%;
 }

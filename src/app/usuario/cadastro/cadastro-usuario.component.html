@@ -1,64 +1,112 @@
-<form (ngSubmit)="salvar()">
-    <br />
-    <h3>{{titulo}}</h3>
+<form (ngSubmit)="salvar()" class="form-group">
+    <div class="div align-center">
+        <h3 class="text-primary" style="text-align: center; vertical-align: middle;">{{titulo}}</h3>
 
-    <label>Código:
-        <input type="input" name="codigo" size="10" maxlength="8" [(ngModel)]="usuario.codigo" disabled />
-    </label><br /><br />
+        <div class="form-group row">
+            <label for="codigo" class="col-sm-2 col-form-label">Código:</label>
+            <div class="col-sm-6">
+                <input id="codigo" type="input" class="form-control form-control-sm" name="codigo" size="10" maxlength="8"
+                    [(ngModel)]="usuario.codigo" readonly />
+            </div>
+        </div>
 
-    <label>Nome:
-        <input type="input" name="nome" size="60" maxlength="60" [(ngModel)]="usuario.nome" />
-    </label><br /><br />
+        <div class="form-group row">
+            <label for="nome" class="col-sm-2 col-form-label">Nome:</label>
+            <div class="col-sm-6">
+                <input id="nome" type="input" class="form-control form-control-sm" name="nome" size="60" maxlength="60"
+                    [(ngModel)]="usuario.nome" />
+            </div>
+        </div>
 
-    <label>Login:
-        <input type="input" name="login" size="15" maxlength="12" [(ngModel)]="usuario.login" />
-    </label><br /><br />
+        <div class="form-group row">
+            <label for="login" class="col-sm-2 col-form-label">Login:</label>
+            <div class="col-sm-6">
+                <input id="login" type="input" class="form-control form-control-sm" name="login" size="15" maxlength="12"
+                    [(ngModel)]="usuario.login" />
+            </div>
+        </div>
 
-    <label>Email:
-        <input type="input" name="email" size="60" maxlength="60" [(ngModel)]="usuario.email" />
-    </label><br /><br />
+        <div class="form-group row">
+            <label for="email" class="col-sm-2 col-form-label">Email:</label>
+            <div class="col-sm-6">
+                <input id="email" type="email" class="form-control form-control-sm" name="email" size="60" maxlength="60"
+                    [(ngModel)]="usuario.email" />
+            </div>
+        </div>
 
-    <label>Senha:
-        <input type="password" name="senha" size="45" maxlength="45" [(ngModel)]="usuario.senha" />
-    </label><br /><br />
+        <div class="form-group row">
+            <label for="senha" class="col-sm-2 col-form-label">Senha:</label>
+            <div class="col-sm-6">
+                <input id="senha" type="password" class="form-control form-control-sm" name="senha" size="45" maxlength="45"
+                    [(ngModel)]="usuario.senha" />
+            </div>
+        </div>
 
-    <label>Tempo para Expirar Senha:
-        <input type="input" name="tempoExpiracaoSenha" size="10" maxlength="4" [(ngModel)]="usuario.tempoExpiracaoSenha" />
-    </label><br /><br />
+        <div class="form-group row">
+            <label for="tempoSenha" class="col-sm-2 col-form-label">Tempo para Expirar Senha:</label>
+            <div class="col-sm-6">
+                <input id="tempoSenha" type="input" class="form-control form-control-sm" name="tempoExpiracaoSenha"
+                    size="10" maxlength="4" [(ngModel)]="usuario.tempoExpiracaoSenha" />
+            </div>
+        </div>
 
-    <label>Código Autorização:
-        <input type="input" name="codgAutorizacao" size="5" maxlength="1" [(ngModel)]="usuario.codgAutorizacao" />
-    </label><br /><br />
+        <div class="form-group row">
+            <label for="codgAutorizacao" class="col-sm-2 col-form-label">Código Autorização:</label>
+            <div class="col-sm-6">
+                <input id="codgAutorizacao" type="input" class="form-control form-control-sm" name="codgAutorizacao"
+                    size="5" maxlength="1" [(ngModel)]="usuario.codgAutorizacao" />
+            </div>
+        </div>
 
-    <label>Registro Ativo:
-        <input type="radio" name="ativo" [(ngModel)]="usuario.situacaoUsuario" [value]="true">Sim
-        <input type="radio" name="ativo" [(ngModel)]="usuario.situacaoUsuario" [value]="false">Não<br>
-    </label><br /><br />
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Registro Ativo:</label>
+            <div class="col-sm-6">
+                <div class="orm-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="ativo" id="rdAtivo" [(ngModel)]="usuario.situacaoUsuario"
+                        [value]="true">
+                    <label class="form-check-label" for="rdAtivo">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="ativo" id="rdAtivo" [(ngModel)]="usuario.situacaoUsuario"
+                        [value]="false">
+                    <label class="form-check-label" for="rdInativo">Não</label>
+                </div>
+            </div>
+        </div>
 
-    <label>Código Pessoa:
-        <input type="number" name="codgPessoa" size="5" maxlength="1" [(ngModel)]="usuario.codgPessoa" />
-    </label><br /><br />
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Código Pessoa:</label>
+            <div class="col-sm-6">
+                <input type="number" class="form-control form-control-sm" name="codgPessoa" size="5" maxlength="1"
+                    [(ngModel)]="usuario.codgPessoa" />
+            </div>
+        </div>
 
-    <div>
-        <label>Perfil: </label>
-        <select name="perfis" [(ngModel)]='perfil' (ngModelChange)="onPerfilSelected($event)">
-            <option *ngFor="let perfil of perfis" [value]="perfil">
-                {{perfil.nome}}
-            </option>
-        </select>
-    </div><br />
 
-    <!--
-        <div>
-        <label>Aparelho: </label>
-        <select multiple="multiple" name="aparelhos" [(ngModel)]='usuario.aparelhos' (ngModelChange)='onAparelhoSelected($event)'>
-            <option value="0">--All--</option>
-            <option *ngFor="let aparelho of aparelhos" value={{aparelho}}>
-                {{aparelho.descricao}}
-            </option>
-        </select>
-    </div><br /><br />
-    -->
+        <div class="form-group row">
+            <label for="perfil" class="col-sm-2 col-form-label">Perfil: </label>
+            <div class="col-sm-6">
+                <select id="perfil" multiple class="form-control form-control-sm" name="perfis" [(ngModel)]='perfil'
+                    (ngModelChange)="onPerfilSelected($event)">
+                    <option *ngFor="let perfil of perfis" [value]="perfil">
+                        {{perfil.nome}}
+                    </option>
+                </select>
+            </div>
+        </div>
 
-    <button type="submit">Salvar</button>
+        <div class="form-group row">
+            <label for="aparelho" class="col-sm-2 col-form-label">Aparelho: </label>
+            <div class="col-sm-6">
+                <select id="aparelho" multiple class="form-control form-control-sm" name="aparelhos" [(ngModel)]='aparelho'
+                    (ngModelChange)="onAparelhoSelected($event)">
+                    <option *ngFor="let aparelho of aparelhos" [value]="aparelho">
+                        {{aparelho.descricao}}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <button mat-button class="btn btn-primary" type="submit">Salvar</button>
+    </div>
 </form>

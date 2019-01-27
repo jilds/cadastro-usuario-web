@@ -1,29 +1,26 @@
-<form>
-    <br />
-    <h3>{{titulo}}</h3>
+<h3 class="text-primary" style="text-align: center; vertical-align: middle;">{{titulo}}</h3>
+<table class="table table-sm table-bordered table-hover bg-light">
+    <thead>
+        <tr class="table-primary">
+            <th scope="col" class="text-secondary text-center">Código</th>
+            <th scope="col" class="text-secondary text-center">Nome</th>
+            <th scope="col" class="text-secondary text-center">Código Aparelho</th>
+            <th scope="col" class="text-secondary text-center">Ações</th>
+        </tr>
+    </thead>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Código</th>
-                <th>Nome</th>
-                <th>Código Aparelho</th>
-                <th>Editar</th>
-                <th>Excluir</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr *ngFor="let aparelho of aparelhos; let i = index;">
-                <td>{{ aparelho.codigo }}</td>
-                <td>{{ aparelho.descricao }}</td>
-                <td>{{ aparelho.codgAparelho }}</td>
-                <td><a (click)="editar(aparelho.codigo);">Editar</a></td>
-                <td><a (click)="excluir(aparelho.codigo, i);">Excluir</a></td>
-            </tr>
-            <tr>
-                <td colspan="6" style="text-align: right;">Total de Registros: {{ aparelhos.length }}</td>
-            </tr>
-        </tbody>
-    </table>
-</form>
+    <tbody>
+        <tr *ngFor="let aparelho of aparelhos; let i = index;">
+            <td class="text-black-60 text-center" style="width: 100px !important;">{{ aparelho.codigo }}</td>
+            <td class="text-black-60">{{ aparelho.descricao }}</td>
+            <td class="text-black-60" style="width: 300px !important;">{{ aparelho.codgAparelho }}</td>
+            <td class="text-black-60 text-center" style="width: 120px !important;">
+                <a class="btn fa fa-edit" (click)="editar(aparelho.codigo);"></a>
+                <a class="btn fa fa-trash" (click)="excluir(aparelho.codigo, i);"></a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" style="text-align: right;">Total de Registros: {{ aparelhos.length }}</td>
+        </tr>
+    </tbody>
+</table>
