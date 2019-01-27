@@ -15,6 +15,7 @@ import { Usuario } from '../../services/usuario';
 import { Response } from '../../services/response';
 
 import { Observable } from 'rxjs/Observable';
+import { UsuarioPerfil } from '../../services/usuario_perfil';
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -26,8 +27,6 @@ export class CadastroUsuarioComponent implements OnInit {
   private titulo: string;
   private usuario: Usuario = new Usuario();
   private perfis: Perfil[] = new Array();
-  private perfilTeste: Perfil = new Perfil();
-  perfilId: Number;
   private aparelhos: Aparelho[] = new Array();
 
   constructor(
@@ -39,8 +38,6 @@ export class CadastroUsuarioComponent implements OnInit {
 
   /* inicializacao do componente */
   ngOnInit() {
-
-    this.perfilId = 2;
 
     /** Chama serviço de consulta para todos os perfis */
     this.perfilService.getPerfis().subscribe(res => this.perfis = res);
@@ -114,10 +111,9 @@ export class CadastroUsuarioComponent implements OnInit {
     }
   }
 
-  onPerfilSelected(val: any) {
-    this.perfilTeste = val as Perfil;
-    //this.perfilService.getPerfil(val).subscribe(res => this.usuario.perfis.a res);
-    console.log(this.perfilTeste); //option value will be sent as event
+  onPerfilSelected(perfil) {
+    this.usuario.usuarioPerfil.push()
+    console.log(perfil);
   }
 
   onAparelhoSelected(event){

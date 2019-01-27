@@ -1,5 +1,6 @@
 import { Perfil } from "./perfil";
 import { Aparelho } from "./aparelho";
+import { UsuarioPerfil } from "./usuario_perfil";
 
 export class Usuario {
 	codigo:number;
@@ -11,6 +12,6 @@ export class Usuario {
 	codgAutorizacao:string;
 	situacaoUsuario:boolean;
 	codgPessoa:number;
-	perfis: Perfil[];
+	usuarioPerfil: UsuarioPerfil[];
 	aparelhos: Aparelho[];
 }
