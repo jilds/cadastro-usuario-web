@@ -1,5 +1,4 @@
 <form (ngSubmit)="salvar()">
-
     <br />
     <h3>{{titulo}}</h3>
 
@@ -42,22 +41,24 @@
 
     <div>
         <label>Perfil: </label>
-        <select (change)="filterForeCasts($event.target.value)">
-            <option value="0">--All--</option>
-            <option *ngFor="let perfil of perfis" value={{perfil}}>
+        <select name="perfis" [(ngModel)]='perfil' (ngModelChange)="onPerfilSelected($event)">
+            <option *ngFor="let perfil of perfis" [value]="perfil">
                 {{perfil.nome}}
             </option>
         </select>
     </div><br />
 
-    <div>
+    <!--
+        <div>
         <label>Aparelho: </label>
-        <select (change)="filterForeCasts($event.target.value)">
+        <select multiple="multiple" name="aparelhos" [(ngModel)]='usuario.aparelhos' (ngModelChange)='onAparelhoSelected($event)'>
             <option value="0">--All--</option>
             <option *ngFor="let aparelho of aparelhos" value={{aparelho}}>
                 {{aparelho.descricao}}
             </option>
         </select>
     </div><br /><br />
+    -->
+
     <button type="submit">Salvar</button>
 </form>

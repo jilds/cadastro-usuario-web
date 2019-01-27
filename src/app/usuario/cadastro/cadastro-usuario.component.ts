@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl} from '@angular/forms';
 
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
@@ -25,10 +26,12 @@ export class CadastroUsuarioComponent implements OnInit {
   private titulo: string;
   private usuario: Usuario = new Usuario();
   private perfis: Perfil[] = new Array();
+  private perfilTeste: Perfil = new Perfil();
+  perfilId: Number;
   private aparelhos: Aparelho[] = new Array();
 
   constructor(
-    private usuarioService: UsuarioService, 
+    private usuarioService: UsuarioService,
     private perfilService: PerfilService,
     private aparelhoService: AparelhoService,
     private router: Router,
@@ -36,7 +39,9 @@ export class CadastroUsuarioComponent implements OnInit {
 
   /* inicializacao do componente */
   ngOnInit() {
-    
+
+    this.perfilId = 2;
+
     /** Chama serviço de consulta para todos os perfis */
     this.perfilService.getPerfis().subscribe(res => this.perfis = res);
 
@@ -56,7 +61,7 @@ export class CadastroUsuarioComponent implements OnInit {
 
   /* Salva ou altera um registro existente */
   salvar(): void {
-
+    console.log(this.usuario);
     /* salva um novo registro se não tem id */
     if (this.usuario.codigo == undefined) {
 
@@ -107,7 +112,16 @@ export class CadastroUsuarioComponent implements OnInit {
           alert(erro);
         });
     }
+  }
 
+  onPerfilSelected(val: any) {
+    this.perfilTeste = val as Perfil;
+    //this.perfilService.getPerfil(val).subscribe(res => this.usuario.perfis.a res);
+    console.log(this.perfilTeste); //option value will be sent as event
+  }
+
+  onAparelhoSelected(event){
+    console.log(event);
   }
 
 }
