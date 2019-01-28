@@ -24,7 +24,7 @@ export class ConsultaPerfilComponent implements OnInit {
   /* inicializacao do componente */
   ngOnInit() {
 
-    this.titulo = "Registros Cadastrados";
+    this.titulo = "Perfis Cadastrados";
 
     /** Chama serviço de consulta para todos os perfis */
     this.perfilService.getPerfis().subscribe(res => this.perfis = res);

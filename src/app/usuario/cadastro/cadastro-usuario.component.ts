@@ -1,21 +1,15 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
-
-import { Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
-
-import { AparelhoService } from '../../services/aparelho.service';
-import { PerfilService } from '../../services/perfil.service';
-import { UsuarioService } from '../../services/usuario.service';
 
 import { Aparelho } from '../../services/aparelho';
 import { Perfil } from '../../services/perfil';
 import { Usuario } from '../../services/usuario';
 
-import { Response } from '../../services/response';
+import { AparelhoService } from '../../services/aparelho.service';
+import { PerfilService } from '../../services/perfil.service';
+import { UsuarioService } from '../../services/usuario.service';
 
-import { Observable } from 'rxjs/Observable';
-import { UsuarioPerfil } from '../../services/usuario_perfil';
+import { Response } from '../../services/response';
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -34,7 +28,9 @@ export class CadastroUsuarioComponent implements OnInit {
     private perfilService: PerfilService,
     private aparelhoService: AparelhoService,
     private router: Router,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute) {
+
+  }
 
   /* inicializacao do componente */
   ngOnInit() {
@@ -50,7 +46,7 @@ export class CadastroUsuarioComponent implements OnInit {
         this.titulo = "Incluir Usuário";
       }
       else {
-        this.titulo = "Editar Usuário";
+        //this.titulo = "Editar Usuário";
         this.usuarioService.getUsuario(Number(parametro["codigo"])).subscribe(res => this.usuario = res);
       }
     });
@@ -58,7 +54,6 @@ export class CadastroUsuarioComponent implements OnInit {
 
   /* Salva ou altera um registro existente */
   salvar(): void {
-    console.log(this.usuario);
     /* salva um novo registro se não tem id */
     if (this.usuario.codigo == undefined) {
 
@@ -111,13 +106,7 @@ export class CadastroUsuarioComponent implements OnInit {
     }
   }
 
-  onPerfilSelected(perfil) {
-    this.usuario.usuarioPerfil.push()
-    console.log(perfil);
+  compareById(p1: any, p2: any) {
+    return p1.codigo === p2.codigo;
   }
-
-  onAparelhoSelected(event){
-    console.log(event);
-  }
-
 }

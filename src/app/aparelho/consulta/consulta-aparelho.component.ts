@@ -24,7 +24,7 @@ export class ConsultaAparelhoComponent implements OnInit {
   /* inicializacao do componente */
   ngOnInit() {
 
-    this.titulo = "Registros Cadastrados";
+    this.titulo = "Aparelhos Cadastrados";
 
     /** Chama serviço de consulta para todos os aparelhos */
     this.aparelhoService.getAparelhos().subscribe(res => this.aparelhos = res);

@@ -40,9 +40,9 @@ import { AparelhoService } from './services/aparelho.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpModule,
     FormsModule,
-    BrowserAnimationsModule,
     routing
   ],
   providers: [ConfigService, UsuarioService, PerfilService, AparelhoService],

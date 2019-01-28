@@ -1,5 +1,5 @@
 table {
-    position:fixed;
+    position:sticky;
     left:10%;
     border-collapse: collapse;    
     width: 80%;

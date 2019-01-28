@@ -1,29 +1,38 @@
-<form (ngSubmit)="salvar()">
+<form (ngSubmit)="salvar()" #form="ngForm">
     <h3 class="text-primary" style="text-align: center; vertical-align: middle;">{{titulo}}</h3>
     <div class="form-group align-form">
 
         <div class="form-group row">
-            <label for="codigo" class="col-sm-2 col-form-label">Código:</label>
             <div class="col-sm-6">
+                <label for="codigo" class="col-form-label">Código:</label>
                 <input type="input" class="form-control form-control-sm" name="codigo" size="8" [(ngModel)]="aparelho.codigo"
                     disabled />
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="codigo" class="col-sm-2 col-form-label">Descrição:</label>
             <div class="col-sm-6">
-                <input type="input" class="form-control form-control-sm" name="descricao" size="15" [(ngModel)]="aparelho.descricao" />
+                <label for="codigo" class="col-form-label">Descrição:</label>
+                <input type="input" required #descricao="ngModel" class="form-control form-control-sm" name="descricao"
+                    size="15" [(ngModel)]="aparelho.descricao" [ngClass]="{'is-invalid': !descricao.valid && (descricao.dirty || descricao.touched), 'is-valid': descricao.valid}" />
+                <span class="
+                    invalid-feedback" *ngIf="descricao.errors && (descricao.dirty || descricao.touched)">
+                    <ul>
+                        <li *ngIf="descricao.errors.required">O campo descrição é requerido</li>
+                    </ul>
+                </span>
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="codigo" class="col-sm-2 col-form-label">Código Aparelho:</label>
             <div class="col-sm-6">
+                <label for="codigo" class="col-form-label">Código Aparelho:</label>
                 <input type="input" class="form-control form-control-sm" name="descricao" size="15" [(ngModel)]="aparelho.codgAparelho" />
             </div>
         </div>
 
-        <button class="btn btn-primary" type="submit">Salvar</button>
+        <br />
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Salvar</button>
+        <button class="btn btn-primary" [routerLink]="['/consulta-aparelho']" type="button">Cancelar</button>
     </div>
 </form>

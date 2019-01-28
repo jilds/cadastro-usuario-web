@@ -7,6 +7,7 @@ import { UsuarioService } from '../../services/usuario.service';
 import { Usuario } from '../../services/usuario';
 
 import { Response } from '../../services/response';
+import { CadastroUsuarioComponent } from '../cadastro/cadastro-usuario.component';
 
 @Component({
   selector: 'app-consulta-usuario',
@@ -24,7 +25,7 @@ export class ConsultaUsuarioComponent implements OnInit {
   /* inicializacao do componente */
   ngOnInit() {
 
-    this.titulo = "Registros Cadastrados";
+    this.titulo = "Usuários Cadastrados";
 
     /** Chama serviço de consulta para todos os usuarios */
     this.usuarioService.getUsuarios().subscribe(res => this.usuarios = res);
@@ -61,6 +62,12 @@ export class ConsultaUsuarioComponent implements OnInit {
   }
 
   editar(codigo: number): void {
+    this.router.navigate(['/cadastro-usuario', codigo]);
+  }
+
+  visualizar(codigo: number): void {
+    var cadastrousuario: CadastroUsuarioComponent;
+    cadastrousuario.tituloVisualizacao();
     this.router.navigate(['/cadastro-usuario', codigo]);
   }
 

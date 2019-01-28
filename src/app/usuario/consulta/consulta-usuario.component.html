@@ -25,8 +25,9 @@
             <td class="text-black-60 text-center" *ngIf='!usuario.situacaoUsuario'>Inativo</td>
             <td class="text-black-60 text-center">{{ usuario.codgPessoa }}</td>
             <td class="text-black-60 text-center">
-                <a class="btn fa fa-edit" (click)="editar(usuario.codigo);"></a>
-                <a class="btn fa fa-trash" (click)="excluir(usuario.codigo, i);"></a>
+                
+                <a class="btn fa fa-edit" (click)="editar(usuario.codigo);" title="Editar"></a>
+                <a class="btn fa fa-trash" (click)="excluir(usuario.codigo, i);" title="Excluir"></a>
             </td>
         </tr>
         <tr>

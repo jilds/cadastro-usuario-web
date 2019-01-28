@@ -1,6 +1,6 @@
 .align-form{
-   position:fixed;
-   left:20%;
+   position:relative;
+   left:30%;
    border-collapse: collapse;    
    width: 80%;
 }
