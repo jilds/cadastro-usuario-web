@@ -65,10 +65,4 @@ export class ConsultaUsuarioComponent implements OnInit {
     this.router.navigate(['/cadastro-usuario', codigo]);
   }
 
-  visualizar(codigo: number): void {
-    var cadastrousuario: CadastroUsuarioComponent;
-    cadastrousuario.tituloVisualizacao();
-    this.router.navigate(['/cadastro-usuario', codigo]);
-  }
-
 }
